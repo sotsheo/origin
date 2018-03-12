@@ -1,0 +1,27 @@
+ header{
+
+    	background-color: #343a40!important;
+    }
+    .main{
+    		margin-top: 10px;
+    }
+    body
+    {
+    	background: url("../img/background.jpg") center  no-repeat;
+        background-size: cover;
+    }
+    .card-body{
+    	text-align: center;
+    }
+    .form-group select{
+    	width: 100%;
+    }
+    .card{
+    	background: #a7a9a6;
+    }
+    .form-signin {
+    width: 100%;
+    max-width: 420px;
+    padding: 15px;
+    margin: 0 auto;
+}
