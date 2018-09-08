@@ -25,7 +25,7 @@
               <?php if($menu_item["id_parent"]==$menu["id"]):?>
                 <tr>
                     <td> |-- {{$menu_item["name"]  }}</td>
-                    <td><a href="{{ url("admin/menu/update/") }}/{{ $menu_item->id }}"><i class="fa fa-edit"></i></a> <a href=""><i class="fa fa-trash"></i></i></td>
+                    <td><a href="{{ url("admin/menu/update/") }}/{{ $menu_item->id }}"><i class="fa fa-edit"></i></a> <a href="{{ url("admin/menu/delete/") }}/{{ $menu_item->id }}"><i class="fa fa-trash"></i></i></td>
                 </tr>
               <?php endif;?>
             <?php endforeach;?>

@@ -47,7 +47,6 @@ class Backend_menus extends Controller
             'name.min'=>"Tên phải lớn hơn 3 kí tự"
         ]
         );
-
         if(!$request->id){
              return redirect('admin/menu/index');
         }

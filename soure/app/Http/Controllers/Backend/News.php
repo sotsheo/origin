@@ -33,6 +33,7 @@ class News extends Controller
      	$file->move(public_path('upload\tintuc'),$file->getClientOriginalName());
      	$category->img=$file->getClientOriginalName();
      	$category->orders=$request->orders;
+        $category->desc=$request->desc;
      	$category->date_public=date("y-m-d");
      	$category->user="admin";
 
@@ -65,6 +66,7 @@ class News extends Controller
      		}
      	$category->orders=$request->orders;
      	$category->date_public=date("y-m-d");
+         $category->desc=$request->desc;
      	$category->user="admin";
      	$category->save();  	
      	return redirect('admin/news/newscategory');

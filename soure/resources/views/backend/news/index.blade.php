@@ -21,7 +21,7 @@
         
       </table> 
       <div class="box-footer">
-          <a href="{{ url("admin/news/create") }}"  class="btn btn-primary">Thêm category</a>
+          <a href="{{ url("admin/news/create") }}"  class="btn btn-primary">Thêm bài viết</a>
         </div>
   </div>
   <!-- /.box-body -->
