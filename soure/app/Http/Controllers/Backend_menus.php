@@ -27,6 +27,7 @@ class Backend_menus extends Controller
     	);
     	$menu=new Backend_menu();
     	$menu->name = $request->name;
+      
     	$menu->id_parent=$request->id_parent;
     	$menu->link=$request->link;
     	$menu->icon=$request->icon;

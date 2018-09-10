@@ -337,7 +337,7 @@
               <?php endif;?>
               <?php if($menu["id_parent"]==0 && $item==0):?>
                 <li>
-                  <a href="pages/mailbox/mailbox.html">
+                  <a href="{{url($menu["link"])}}">
                     <i class="fa fa-envelope"></i> <span>{{$menu["name"]}}</span>
                     
                   </a>

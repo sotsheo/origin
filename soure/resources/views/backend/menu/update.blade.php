@@ -94,9 +94,14 @@
               <div class="form-group">
                   <label>Lựa chọn đường dẫn</label>
                  <select class="form-control select2" style="width: 100%;" name="link">
-                  <option value="/admin/news/index">Bài viết</option>
-                  <option value="/admin/news/newscategory">Danh mục bài viết</option>
-                  
+                 <optgroup label="Quản lý bài viết">
+                    <option value="/admin/news/index">Bài viết</option>
+                    <option value="/admin/news/newscategory">Danh mục bài viết</option>
+                  </optgroup>
+                  <optgroup label="Quản lý banner">
+                    <option value="/admin/banner/index">Banner</option>
+                    <option value="/admin/banner/category">Nhóm banner</option>
+                  </optgroup>
                  </select>
               </div>
 

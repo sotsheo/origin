@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
 
-use Illuminate\Http\Request;
+namespace App\Http\Controllers\Backend;
+use App\Newsnew;
 use App\Category_news;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 class News extends Controller
@@ -81,4 +82,72 @@ class News extends Controller
       	
       	return redirect('admin/news/newscategory');
       }
+
+
+      function create(){
+        return view("backend.news.create");
+      }
+      function create_news(Request $request){
+        $news=new Newsnew();
+        $news->name=$request->name;
+        $news->url=$request->url;
+        $news->news_sortdesc=$request->news_sortdesc;
+        $news->status=0;
+        if($request->status){
+            $news->status=1;
+        }       
+        $file=$request->file("img");
+        $file->move(public_path('upload\tintuc'),$file->getClientOriginalName());
+        $news->img=$file->getClientOriginalName();
+        $news->orders=$request->orders;
+        $news->desc=$request->desc;
+        $news->id_category=$request->id_category;
+        $news->date_public=date("y-m-d");
+        $news->user="admin";
+        $news->save();
+        return redirect('admin/news/index');
+      }
+
+       function update($id,Request $request){
+        $news=Newsnew::find($id);
+        if($news){
+            $request->session()->flash('message', 'Không thể cập nhật');
+            return view("backend.news.update",["news"=>$news]);
+        }
+        return redirect('admin/news/index');
+        
+     }
+     function update_news(Request $request){
+        $news=Newsnew::find( $request->id);
+        $news->name=$request->name;
+        $news->url=$request->url;
+        $news->news_sortdesc=$request->news_sortdesc;
+        $news->status=0;
+        if($request->status){
+            $news->status=1;
+        }       
+        
+            $file=$request->file("img");
+            if($file){
+                $file->move(public_path('upload\tintuc'),$file->getClientOriginalName());
+            $news->img='upload\tintuc'.$request->img;
+            }
+        $news->orders=$request->orders;
+        $news->date_public=date("y-m-d");
+        $news->desc=$request->desc;
+        $news->user="admin";     
+        $news->id_category=$request->id_category;
+        $news->save();      
+        return redirect('admin/news/index');
+     }
+     function delete_news(Request $request,$id){
+        $news=Newsnew::find($id);
+        if($news){
+            $request->session()->flash('message', 'Không co dữ liệu để xóa');
+            $news->delete();
+            return redirect('admin/news/index');
+        }
+        
+        return redirect('admin/news/index');
+     }
 }

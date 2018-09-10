@@ -46,13 +46,55 @@
                 
               </div>
               <div class="form-group">   
-                <input type="hidden" class="form-control"  placeholder="Tên menu" name="icon"  id="icon">
+                <label>Lựa chọn icon:</label>
+                <div>
+                   <input type="hidden" class="form-control"  placeholder="Tên menu" name="icon"  id="icon" value="">
                  <i class="fa fa-circle-o" ></i>             
                  <i class="fa fa-envelope" ></i>
-                 
+                 <i class="fa fa-address-book"></i>
+                 <i class="fa fa-align-justify"></i>
+                 <i class="fa fa-align-left"></i>
+                 <i class="fa fa-align-right"></i>
+                 <i class="fa fa-bars"></i>
+                 <i class="fa fa-calendar-alt"></i>
+                 <i class="fa fa-cogs"></i>
+                 <i class="fa fa-cog"></i>
+                 <i class="fa fa-comment-dots"></i>
+                 <i class="fa fa-grip-horizontal"></i>
+                 <i class="fa fa-grip-vertical"></i>
+                 <i class="fa fa-list"></i>  
+                 <i class="fa fa-money-bill-alt"></i>
+                 <i class="fa fa-save"></i>
+                 <i class="fa fa-server"></i>
+                 <i class="fa fa-th"></i>
+                 <i class="fa fa-th-list"></i>
+                 <i class="fa fa-user-tie"></i>
+                 <i class="fa fa-user-minus"></i>
+                 <i class="fa fa-window-maximize"></i>
+                 <i class="fa fa-window-restore"></i>
+                 <i class="fa fa-window-close"></i>
+                 <i class="fa fa-tshirt"></i>
+                 <i class="fa fa-tshirt"></i>
+                 <i class="fa fa-male"></i>
+                 <i class="fa fa-id-card"></i>
+                 <i class="fa fa-home"></i>
+                </div>
+               
               </div>
               <!-- /.box-body -->
-
+              <div class="form-group">
+                  <label>Lựa chọn đường dẫn</label>
+                 <select class="form-control select2" style="width: 100%;" name="link">
+                    <optgroup label="Quản lý bài viết">
+                      <option value="/admin/news/index">Bài viết</option>
+                      <option value="/admin/news/newscategory">Danh mục bài viết</option>
+                    </optgroup>
+                    <optgroup label="Quản lý banner">
+                      <option value="/admin/banner/index">Banner</option>
+                      <option value="/admin/banner/category">Nhóm banner</option>
+                    </optgroup>
+                 </select>
+              </div>
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>

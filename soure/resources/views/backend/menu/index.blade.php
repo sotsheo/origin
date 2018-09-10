@@ -34,6 +34,9 @@
         </tbody>
         
       </table>
+      <div class="box-footer">
+          <a href="{{ url("admin/menu/create") }}"  class="btn btn-primary">Thêm menu</a>
+        </div>
   </div>
   <!-- /.box-body -->
 </div>

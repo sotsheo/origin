@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class News extends Migration
+class Banner extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class News extends Migration
      */
     public function up()
     {
-        if(!Schema::hasTable('news')){
-            Schema::create('news', function (Blueprint $table) {
+        if(!Schema::hasTable('banner')){
+            Schema::create('banner', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('name');
                 $table->string('url')->nullable();
-                $table->integer('category_news')->nullable();
+                $table->integer('category_banner')->nullable();
                 $table->string('news_sortdesc')->nullable();
                 $table->text('desc')->nullable();
                 $table->boolean('status');
@@ -40,6 +40,6 @@ class News extends Migration
      */
     public function down()
     {
-         Schema::dropIfExists('news');
+        Schema::dropIfExists('banner');
     }
 }
