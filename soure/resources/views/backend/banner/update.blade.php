@@ -24,41 +24,51 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form  method="post" action="{{ route('update_category') }}"  >
+            <form  method="post" action="{{ route('update_banner') }}"  >
               <input type="hidden"   name="_token" value="{{ csrf_token() }}"/>
-              <input type="hidden"   name="id" value="{{ $category['id'] }}" />
+              <input type="hidden"   name="id" value="{{ $banner['id'] }}" />
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Tên danh mục</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Tên danh mục" name="name" value="{{ $category['name'] }}">
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Tên danh mục" name="name" value="{{ $banner['name'] }}">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Đường dẫn SEO</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Tên dẫn SEO" name="url" value="{{ $category['url'] }}">
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Tên dẫn SEO" name="url" value="{{ $banner['url'] }}">
                 </div>
                  <div class="form-group">
                   <label for="exampleInputEmail1">Mô tả ngắn</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Mô tả ngắn" name="news_sortdesc" value="{{ $category['news_sortdesc'] }}">
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Mô tả ngắn" name="news_sortdesc" value="{{ $banner['news_sortdesc'] }}">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Mô tả </label>
-                  <textarea id="demo" class="ckeditor" name="desc" >{{ $category['desc'] }}</textarea>
+                  <textarea id="demo" class="ckeditor" name="desc" >{{ $banner['desc'] }}</textarea>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nổi bật     </label>
-                  <input type="checkbox"  name="status" {{ ($category['status']==1)?"checked":"" }}>
+                  <input type="checkbox"  name="status" {{ ($banner['status']==1)?"checked":"" }}>
                 </div>
                  <div class="form-group">
                   <label for="exampleInputEmail1">Hình ảnh</label>
-                  <img src="{{ url('soure/public/upload/banner') }}/{{ $category['img'] }}" style="width: 100px;height: 100px">
+                  <img src="{{ url('soure/public/upload/banner') }}/{{ $banner['img'] }}" style="width: 100px;height: 100px">
                   <input type="file" name="img" >
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Thứ tự</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Tên menu" name="orders" value="{{ $category['orders'] }}">
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Tên menu" name="orders" value="{{ $banner['orders'] }}">
                 </div>
                 
-               	 
+               	  <div class="form-group">
+                  <label>Lựa chọn danh mục bài viết</label>
+                  <select class="form-control select2" style="width: 100%;" name="category_banner">
+
+                    <option  value="0">Chọn menu</option>
+
+                     <?php foreach ($categorys as $key => $category):?>
+                      <option value="{{$category["id"]}}" {{($banner["id_category"]==$category["id"])?"selected" :""}}>{{$category["name"]}}</option>
+                     <?php endforeach;?>
+                  </select>
+                </div>
                 
             
                 

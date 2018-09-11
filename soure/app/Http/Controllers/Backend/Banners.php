@@ -76,13 +76,32 @@ class Banners extends Controller
         return redirect('admin/banner/category');
     }
     function create(){
-        
+         return view("backend.banner.create");
     }
-    function create_banner(){
-        
+    function create_banner(Request $request){
+         $banner =new Banner();
+        $banner->name=$request->name;
+        $banner->url=$request->url;
+        $banner->news_sortdesc=$request->news_sortdesc;
+        $banner->status=0;
+        if($request->status){
+            $banner->status=1;
+        }       
+        $file=$request->file("img");
+        $file->move(public_path('upload\banner'),$file->getClientOriginalName());
+        $banner->img=$file->getClientOriginalName();
+        $banner->orders=$request->orders;
+        $banner->desc=$request->desc;
+        $banner->category_banner=$request->category_banner;
+        $banner->date_public=date("y-m-d");
+        $banner->user="admin";
+
+        $banner->save();
+        return redirect('admin/banner/index');
     }
-     function update(){
-        
+     function update($id){
+         $banner =Banner::find($id);
+          return view("backend.banner.update",["banner"=>$banner]);
     }
      function update_banner(){
         

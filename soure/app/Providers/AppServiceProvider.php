@@ -61,11 +61,19 @@ class AppServiceProvider extends ServiceProvider
         // banner category
             view()->composer('backend.banner.index',function($view){
             $category=Banner_category::all();
-            $view->with("banners",$category);
+            $view->with("categorys",$category);
         });
             view()->composer('backend.banner.index',function($view){
             $banners=Banner::all();
             $view->with("banners",$banners);
+        });
+            view()->composer('backend.banner.create',function($view){
+            $categorys=Banner_category::all();
+            $view->with("categorys",$categorys);
+        });
+             view()->composer('backend.banner.update',function($view){
+            $categorys=Banner_category::all();
+            $view->with("categorys",$categorys);
         });
              view()->composer('backend.banner.category',function($view){
             $banners=Banner_category::all();

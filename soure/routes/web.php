@@ -54,9 +54,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('category_delete/{id}', "Banners@category_delete");
         //  news
         Route::get('create', 'Banners@create');
-        Route::post('create_banner', ["as"=>"create_news","uses"=>"Banners@create_banner"]);
+        Route::post('create_banner', ["as"=>"create_banner","uses"=>"Banners@create_banner"]);
          Route::get('update/{id}',["as"=>"update","uses"=>"Banners@update"]);
-        Route::post('update_banner', ["as"=>"update_news","uses"=>"Banners@update_banner"]);
+        Route::post('update_banner', ["as"=>"update_banner","uses"=>"Banners@update_banner"]);
         Route::get('delete/{id}', "Banners@delete_banner");
     });
 });

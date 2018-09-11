@@ -11,6 +11,7 @@
           <tr>
             <th>Tên</th>
             <th>Ảnh </th>
+            <th>Nhóm Banner </th>
             <th>Thao tác</th>
             
           </tr>
@@ -21,6 +22,16 @@
             <tr>
               <td>{{$banner["name"]}}</td>
               <td><img src="{{ url('soure/public/upload/banner') }}/{{ $banner['img'] }}" style="width: 300px;height: 100px"></td>
+              <td>
+                 <?php 
+                  foreach($categorys as $key=>$category){
+                    if($category["id"]==$banner["category_banner"]){
+                      echo $category["name"];
+                    }
+                  }
+                      
+                ?>
+              </td>
               <td><a href="{{ url("admin/banner/update/") }}/{{ $banner->id }}"><i class="fa fa-edit"></i></a> <a href=""><i class="fa fa-trash"></i></i></td>
             </tr>
             

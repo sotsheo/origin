@@ -24,7 +24,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form  method="post" action="{{ route('create_category') }}"  enctype="multipart/form-data" >
+            <form  method="post" action="{{ route('create_banner') }}"  enctype="multipart/form-data" >
               <input type="hidden"   name="_token" value="{{ csrf_token() }}"/>
               <div class="box-body">
                 <div class="form-group">
@@ -56,7 +56,17 @@
                   <label for="exampleInputEmail1">Thứ tự</label>
                   <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Tên menu" name="orders">
                 </div>
-                
+                <div class="form-group">
+                  <label>Lựa chọn danh mục bài viết</label>
+                  <select class="form-control select2" style="width: 100%;" name="category_banner">
+
+                    <option selected="selected" value="0">Chọn menu</option>
+
+                     <?php foreach ($categorys as $key => $category):?>
+                      <option value="{{$category["id"]}}">{{$category["name"]}}</option>
+                     <?php endforeach;?>
+                  </select>
+                </div>
                	
                 
               </div>
