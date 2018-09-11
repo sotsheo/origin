@@ -21,7 +21,7 @@
             <tr>
               <td>{{$banner["name"]}}</td>
               <td><img src="{{ url('soure/public/upload/banner') }}/{{ $banner['img'] }}" style="width: 300px;height: 100px"></td>
-              <td><a href="{{ url("admin/banner/category_update/") }}/{{ $banner->id }}"><i class="fa fa-edit"></i></a> <a href=""><i class="fa fa-trash"></i></i></td>
+              <td><a href="{{ url("admin/banner/update/") }}/{{ $banner->id }}"><i class="fa fa-edit"></i></a> <a href=""><i class="fa fa-trash"></i></i></td>
             </tr>
             
          <?php endforeach;?>
@@ -29,7 +29,7 @@
         
       </table>
       <div class="box-footer">
-          <a href="{{ url("admin/banner/createcategory") }}"  class="btn btn-primary">Thêm menu</a>
+          <a href="{{ url("admin/banner/create") }}"  class="btn btn-primary">Thêm menu</a>
         </div>
   </div>
   <!-- /.box-body -->

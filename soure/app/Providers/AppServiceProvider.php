@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Schema;
 use App\Backend_menu;
 use App\Newsnew;
 use App\Category_news;
+
+use App\Banner_category;
+use App\Banner;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -17,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+        // menu
         view()->composer('backend.head.index',function($view){
             $menu=Backend_menu::all();
             $view->with("menus",$menu);
@@ -33,6 +37,8 @@ class AppServiceProvider extends ServiceProvider
             $menu=Backend_menu::all();
             $view->with("menus",$menu);
         });
+
+        // Category _news
           view()->composer('backend.news.create',function($view){
             $categorys=Category_news::all();
             $view->with("categorys",$categorys);
@@ -45,10 +51,27 @@ class AppServiceProvider extends ServiceProvider
             $categorys=Category_news::all();
             $view->with("categorys",$categorys);
         });
+
+        // news
             view()->composer('backend.news.index',function($view){
             $news=Newsnew::all();
             $view->with("news",$news);
         });
+
+        // banner category
+            view()->composer('backend.banner.index',function($view){
+            $category=Banner_category::all();
+            $view->with("banners",$category);
+        });
+            view()->composer('backend.banner.index',function($view){
+            $banners=Banner::all();
+            $view->with("banners",$banners);
+        });
+             view()->composer('backend.banner.category',function($view){
+            $banners=Banner_category::all();
+            $view->with("banners",$banners);
+        });
+              
 
         // news
 

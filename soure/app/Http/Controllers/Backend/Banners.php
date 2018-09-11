@@ -10,22 +10,70 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 class Banners extends Controller
 {
     function index(){
-
+        return view("backend.banner.index");
     }
      function category(){
         return view("backend.banner.category");
     }
     function category_create(){
-        
+         return view("backend.banner.category_create");
     }
-    function create_category(){
-        
+    function create_category(Request $request){
+        $category =new Banner_category();
+        $category->name=$request->name;
+        $category->url=$request->url;
+        $category->news_sortdesc=$request->news_sortdesc;
+        $category->status=0;
+        if($request->status){
+            $category->status=1;
+        }       
+        $file=$request->file("img");
+        $file->move(public_path('upload\banner'),$file->getClientOriginalName());
+        $category->img=$file->getClientOriginalName();
+        $category->orders=$request->orders;
+        $category->desc=$request->desc;
+        $category->date_public=date("y-m-d");
+        $category->user="admin";
+
+        $category->save();
+        return redirect('admin/banner/category');
+
     }
-    function category_update(){
-        
+    function category_update($id){
+         $category =Banner_category::find($id);
+          return view("backend.banner.category_update",["category"=>$category]);
     }
-    function category_delete(){
+    function update_category(Request $request){
+        $category=Banner_category::find( $request->id);
+        $category->name=$request->name;
+        $category->url=$request->url;
+        $category->news_sortdesc=$request->news_sortdesc;
+        $category->status=0;
+        if($request->status){
+            $category->status=1;
+        }       
         
+            $file=$request->file("img");
+            if($file){
+                $file->move(public_path('upload\banner'),$file->getClientOriginalName());
+            $category->img='upload\banner'.$request->img;
+            }
+        $category->orders=$request->orders;
+        $category->date_public=date("y-m-d");
+         $category->desc=$request->desc;
+        $category->user="admin";
+        $category->save();      
+        return redirect('admin/banner/category');
+    }
+    function category_delete($id){
+        $category=Banner_category::find($id);
+        if($category){
+            $request->session()->flash('message', 'Không co dữ liệu để xóa');
+            $category->delete();
+            return redirect('admin/banner/category');
+        }
+        
+        return redirect('admin/banner/category');
     }
     function create(){
         
